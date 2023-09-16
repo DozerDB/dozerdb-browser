@@ -11,7 +11,6 @@ import {
 import {
   Database,
   findDatabaseByNameOrAlias,
-  getAllowOutgoingConnections,
   getClientsAllowTelemetry,
   getDatabases,
   getSemanticVersion,
@@ -21,15 +20,6 @@ import {
   SYSTEM_DB,
   VERSION_FOR_CLUSTER_ROLE_IN_SHOW_DB
 } from 'shared/modules/dbMeta/dbMetaDuck'
-import {
-  getAllowCrashReports,
-  getAllowUserStats
-} from 'shared/modules/settings/settingsDuck'
-import {
-  allowUdcInAura,
-  getAllowCrashReportsInDesktop,
-  getAllowUserStatsInDesktop
-} from 'shared/modules/udc/udcDuck'
 
 export function getCurrentDatabase(state: GlobalState): Database | null {
   const dbName = getUseDb(state)
@@ -93,7 +83,7 @@ function usedTelemetrySettingSource(
     return 'DESKTOP_SETTING'
   }
 
-  if (isConnectedAuraHost(state) && allowUdcInAura(state) !== 'UNSET') {
+  if (isConnectedAuraHost(state)) {
     return 'AURA'
   }
 
@@ -105,11 +95,9 @@ export type TelemetrySettings = {
   allowCrashReporting: boolean
   source: TelemetrySettingSource
 }
+/* DozerDb Turns off any outgoing telemetry. */
 export const getTelemetrySettings = (state: GlobalState): TelemetrySettings => {
   const source = usedTelemetrySettingSource(state)
-  const confAllowsUdc =
-    getAllowOutgoingConnections(state) && getClientsAllowTelemetry(state)
-  const auraAllowsUdc = allowUdcInAura(state) === 'ALLOW'
 
   const rules: Record<
     TelemetrySettingSource,
@@ -123,20 +111,20 @@ export const getTelemetrySettings = (state: GlobalState): TelemetrySettings => {
       allowUserStats: false
     },
     DESKTOP_SETTING: {
-      allowCrashReporting: getAllowCrashReportsInDesktop(state),
-      allowUserStats: getAllowUserStatsInDesktop(state)
+      allowCrashReporting: false,
+      allowUserStats: false
     },
     AURA: {
-      allowCrashReporting: auraAllowsUdc,
-      allowUserStats: auraAllowsUdc
+      allowCrashReporting: false,
+      allowUserStats: false
     },
     BROWSER_SETTING: {
-      allowCrashReporting: getAllowCrashReports(state),
-      allowUserStats: getAllowUserStats(state)
+      allowCrashReporting: false,
+      allowUserStats: false
     },
     NEO4J_CONF: {
-      allowCrashReporting: confAllowsUdc,
-      allowUserStats: confAllowsUdc
+      allowCrashReporting: false,
+      allowUserStats: false
     }
   }
 

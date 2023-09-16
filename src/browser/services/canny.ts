@@ -22,12 +22,13 @@ import { Component, ReactNode } from 'react'
 import { canUseDOM } from 'services/utils'
 
 export const cannyOptions = {
-  appID: '5eb66d2ff9f4665cc1bed233',
+  appID: '6504bfeef78f898f09888e39',
   position: 'right',
   align: 'top',
   labelIDs: ['6239a0c787c34c6baebda0fd']
 }
-export const CANNY_FEATURE_REQUEST_URL = 'https://feedback.neo4j.com/browser'
+export const CANNY_FEATURE_REQUEST_URL =
+  'https://dozerdb.canny.io/feature-requests'
 
 export interface CannyOptions {
   appID: string

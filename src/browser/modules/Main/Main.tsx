@@ -81,8 +81,8 @@ const Main = React.memo(function Main(props: MainProps) {
       {showUdcConsentBanner && (
         <UdcConsentBanner>
           <span>
-            To help make Neo4j Browser better we collect information on product
-            usage. Review your{' '}
+            As a security feature, DozerDB turns off the collection of
+            information on product usage by default. Review your{' '}
             <UnderlineClickable onClick={openSettingsDrawer}>
               settings
             </UnderlineClickable>{' '}
