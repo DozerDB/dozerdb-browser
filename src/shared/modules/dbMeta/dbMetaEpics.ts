@@ -44,11 +44,6 @@ import {
   DB_META_FORCE_COUNT,
   DB_META_COUNT_DONE,
   metaCountQuery,
-  trialStatusQuery,
-  updateTrialStatus,
-  oldTrialStatusQuery,
-  updateTrialStatusOld,
-  isEnterprise,
   SERVER_VERSION_READ,
   supportsMultiDb
 } from './dbMetaDuck'
@@ -288,37 +283,6 @@ async function fetchServerInfo(store: any) {
   } catch {}
 }
 
-async function fetchTrialStatus(store: any) {
-  const version = getSemanticVersion(store.getState())
-  const enterprise = isEnterprise(store.getState())
-
-  const VERSION_FOR_TRIAL_STATUS = '5.7.0'
-  const VERSION_FOR_TRIAL_STATUS_OLD = '5.3.0'
-
-  if (version && enterprise) {
-    if (gte(version, VERSION_FOR_TRIAL_STATUS)) {
-      try {
-        const trialStatus = await bolt.backgroundWorkerlessRoutedRead(
-          trialStatusQuery,
-          // System database is available from v4
-          { useDb: SYSTEM_DB },
-          store
-        )
-        store.dispatch(updateTrialStatus(trialStatus))
-      } catch {}
-    } else if (gte(version, VERSION_FOR_TRIAL_STATUS_OLD)) {
-      try {
-        const oldTrialStatus = await bolt.backgroundWorkerlessRoutedRead(
-          oldTrialStatusQuery,
-          { useDb: SYSTEM_DB },
-          store
-        )
-        store.dispatch(updateTrialStatusOld(oldTrialStatus))
-      } catch {}
-    }
-  }
-}
-
 const switchToRequestedDb = (store: any) => {
   if (getUseDb(store.getState())) return
 
@@ -410,7 +374,6 @@ export const dbMetaEpic = (some$: any, store: any) =>
     )
     // we don't need to block bootup on fetching trial status, dispatch as side effect
     .do(() => {
-      fetchTrialStatus(store)
       store.dispatch({ type: SERVER_VERSION_READ })
     })
     .mergeMap(() =>
