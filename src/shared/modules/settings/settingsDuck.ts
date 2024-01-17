@@ -147,8 +147,8 @@ export const initialState: SettingsState = {
   enableMultiStatementMode: true,
   connectionTimeout: 30 * 1000, // 30 seconds
   showPerformanceOverlay: false,
-  allowCrashReports: true,
-  allowUserStats: true,
+  allowCrashReports: false,
+  allowUserStats: false,
   showWheelZoomInfo: true,
   useReadTransactions: false
 }

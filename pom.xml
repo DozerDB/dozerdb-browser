@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.neo4j.client</groupId>
-  <artifactId>neo4j-browser</artifactId>
-  <version>5.15.0</version>
+  <groupId>org.dozerdb.client</groupId>
+  <artifactId>dozerdb-browser</artifactId>
+  <version>5.15.0.0</version>
   <name>Neo4j - Browser</name>
   <description>Graph database client.</description>
   <url>https://github.com/neo4j/neo4j</url>
@@ -27,9 +27,9 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git://github.com/neo4j/neo4j.git</connection>
-    <developerConnection>scm:git:git@github.com:neo4j/neo4j.git</developerConnection>
-    <url>https://github.com/neo4j/neo4j</url>
+    <connection>scm:git:git://github.com/dozerdb/dozerdb-browser.git</connection>
+    <developerConnection>scm:git:git@github.com:dozerdb/dozerdb-browser.git</developerConnection>
+    <url>https://github.com/dozerdb/dozerdb-browser</url>
   </scm>
   <licenses>
     <license>
