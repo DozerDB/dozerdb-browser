@@ -40,11 +40,15 @@ function FrameAside(props: any) {
       />
     )
   }
-
+  const subtitleToUse = 'Enhanced by DozerDB'
   return title ? (
     <>
       {title && <H3>{title}</H3>}
-      {subtitle && <Lead>{subtitle}</Lead>}
+      {subtitleToUse && (
+        <Lead>
+          <b>{subtitleToUse}</b>
+        </Lead>
+      )}
     </>
   ) : null
 }

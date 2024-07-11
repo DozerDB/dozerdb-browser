@@ -67,6 +67,12 @@ const About = ({ serverVersion, serverEdition }: AboutProps) => (
             Neo4j, Inc
           </DrawerExternalLink>
         </DrawerSubHeader>
+        <DrawerSubHeader>
+          Enhanced by{' '}
+          <DrawerExternalLink href="https://dozerdb.org/">
+            DozerDB
+          </DrawerExternalLink>
+        </DrawerSubHeader>
       </DrawerSection>
       <DrawerSection>
         <DrawerSectionBody>
@@ -154,13 +160,17 @@ const About = ({ serverVersion, serverEdition }: AboutProps) => (
           <DrawerExternalLink href="http://github.com/neo4j">
             Neo4j
           </DrawerExternalLink>{' '}
+          or Contribute code to{' '}
+          <DrawerExternalLink href="http://github.com/dozerdb">
+            DozerDb
+          </DrawerExternalLink>{' '}
           or{' '}
-          <DrawerExternalLink href="http://github.com/neo4j/neo4j-browser">
-            Neo4j Browser
+          <DrawerExternalLink href="http://github.com/dozerdb/dozerdb-browser">
+            DozerDB Browser
           </DrawerExternalLink>
           <br />
           Send us your Browser feedback via{' '}
-          <DrawerExternalLink href="mailto:browser@neotechnology.com?subject=Neo4j Browser feedback">
+          <DrawerExternalLink href="mailto:browser@dozerdb.org?subject=GDB Browser feedback">
             email
           </DrawerExternalLink>
         </DrawerSectionBody>
