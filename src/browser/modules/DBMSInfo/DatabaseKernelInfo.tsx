@@ -88,7 +88,7 @@ export const DatabaseKernelInfo = ({
             {edition && (
               <tr>
                 <StyledKey>Edition: </StyledKey>
-                <StyledValueUCFirst>{edition}</StyledValueUCFirst>
+                <StyledValueUCFirst>DozerDB</StyledValueUCFirst>
               </tr>
             )}
             {dbName && (
