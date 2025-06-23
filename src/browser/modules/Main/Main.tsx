@@ -71,7 +71,9 @@ const Main = React.memo(function Main(props: MainProps) {
 
   useEffect(() => {
     showUdcConsentBanner && incrementConsentBannerShownCount()
-  }, [showUdcConsentBanner /* missing function from dep array but including it causes loop */])
+  }, [
+    showUdcConsentBanner /* missing function from dep array but including it causes loop */
+  ])
 
   return (
     <StyledMain data-testid="main">
@@ -81,8 +83,8 @@ const Main = React.memo(function Main(props: MainProps) {
       {showUdcConsentBanner && (
         <UdcConsentBanner>
           <span>
-            To help make Neo4j Browser better we collect information on product
-            usage. Review your{' '}
+            As a security feature, DozerDB turns off the collection of
+            information on product usage by default. Review your{' '}
             <UnderlineClickable onClick={openSettingsDrawer}>
               settings
             </UnderlineClickable>{' '}
