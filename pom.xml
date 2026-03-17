@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.dozerdb.client</groupId>
   <artifactId>dozerdb-browser</artifactId>
-  <version>5.26.21.0</version>
+  <version>5.26.22.0</version>
   <name>Neo4j - Browser</name>
   <description>Graph database client.</description>
   <url>https://github.com/neo4j/neo4j</url>
@@ -100,7 +100,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.4</version>
+        <version>3.4.0</version>
         <executions>
           <execution>
             <id>attach-sources</id>
@@ -113,7 +113,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9.1</version>
+        <version>3.12.0</version>
         <configuration>
           <charset>UTF-8</charset>
           <docencoding>UTF-8</docencoding>

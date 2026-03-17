@@ -83,9 +83,9 @@ const About = ({ serverVersion, serverEdition }: AboutProps) => (
         <DrawerSubHeader>You are running</DrawerSubHeader>
         <DrawerSectionBody>
           <p>
-            Neo4j Browser version:{' '}
+            DozerDB Browser version:{' '}
             <DrawerExternalLink
-              href={`https://github.com/neo4j/neo4j-browser/releases/tag/${browserVersion}`}
+              href={`https://github.com/dozerdb/dozerdb-browser/releases/tag/dozerdb-${browserVersion}`}
             >
               {browserVersion}
             </DrawerExternalLink>
@@ -93,17 +93,9 @@ const About = ({ serverVersion, serverEdition }: AboutProps) => (
           {serverVersion && serverEdition && (
             <p>
               Neo4j Server version:{' '}
-              <DrawerExternalLink href={asChangeLogUrl(serverVersion)}>
-                {serverVersion}
-              </DrawerExternalLink>{' '}
-              ({serverEdition})
+              <DrawerExternalLink>{serverVersion}</DrawerExternalLink> (DozerDB)
             </p>
           )}
-          <p>
-            <DrawerExternalLink href="https://github.com/neo4j/neo4j-browser/releases">
-              Neo4j Browser Changelog
-            </DrawerExternalLink>
-          </p>
           {__BUILD_NUMBER__ && (
             <div onClick={() => copyToClipboard(__BUILD_NUMBER__)}>
               Build number: {__BUILD_NUMBER__}
@@ -127,15 +119,6 @@ const About = ({ serverVersion, serverEdition }: AboutProps) => (
           <DrawerExternalLink href="http://www.gnu.org/licenses/gpl.html">
             GPLv3
           </DrawerExternalLink>{' '}
-          or{' '}
-          <DrawerExternalLink href="http://www.gnu.org/licenses/agpl-3.0.html">
-            AGPL
-          </DrawerExternalLink>{' '}
-          for Open Source, and{' '}
-          <DrawerExternalLink href="https://neo4j.com/licensing/">
-            NTCL
-          </DrawerExternalLink>{' '}
-          Commercial.
         </DrawerSectionBody>
       </DrawerSection>
       <DrawerSection>
